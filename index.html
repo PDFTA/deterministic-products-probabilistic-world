@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deterministic Products in a Probabilistic World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --accent: #f59e0b;
+      --accent-muted: rgba(245, 158, 11, 0.08);
+      --section-bg: #13111e;
+      --section-accent: #818cf8;
+      --section-muted: rgba(129, 140, 248, 0.12);
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --code-bg: #010409;
+      --code-border: #30363d;
+      --green: #3fb950;
+      --red: #f85149;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      font-family: 'Josefin Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    #presentation {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 64px 96px;
+      background: var(--bg);
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    /* ── Slide variants ── */
+    .slide--title {
+      align-items: center;
+      text-align: center;
+      background: var(--bg);
+    }
+
+    .slide--section {
+      align-items: center;
+      text-align: center;
+      background: var(--section-bg);
+    }
+
+    .slide--code {
+      padding: 48px 96px;
+    }
+
+    /* ── Typography ── */
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .slide--section h2 {
+      font-size: 3rem;
+      color: var(--section-accent);
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .section-num {
+      font-size: 6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(129, 140, 248, 0.12);
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Bullets ── */
+    .bullets {
+      list-style: none;
+      margin-top: 28px;
+    }
+
+    .bullets li {
+      font-size: 1.18rem;
+      line-height: 1.55;
+      padding: 11px 0 11px 30px;
+      position: relative;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bullets li:last-child {
+      border-bottom: none;
+    }
+
+    .bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── Core message cards ── */
+    .core-messages {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .core-msg {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .core-msg__icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .core-msg__text {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    /* ── Code ── */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: #adbac7;
+    }
+
+    p>code,
+    li>code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.88em;
+      color: #79c0ff;
+    }
+
+    .kw {
+      color: #ff7b72;
+    }
+
+    .cls {
+      color: #ffa657;
+    }
+
+    .str {
+      color: #a5d6ff;
+    }
+
+    .fn {
+      color: #d2a8ff;
+    }
+
+    .num {
+      color: #79c0ff;
+    }
+
+    .cm {
+      color: #8b949e;
+    }
+
+    /* ── Callout ── */
+    .callout {
+      background: var(--accent-muted);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── Formula ── */
+    .formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.35rem;
+      color: var(--section-accent);
+      margin-top: 28px;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 8px;
+      background: var(--section-muted);
+    }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    th {
+      background: var(--surface);
+      color: var(--accent);
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    .t {
+      color: var(--green);
+    }
+
+    .f {
+      color: var(--red);
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--accent-muted);
+      color: var(--accent);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 28px;
+    }
+
+    /* ── Progress bar ── */
+    #progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--border);
+      z-index: 100;
+    }
+
+    #progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    /* ── Counter ── */
+    #counter {
+      position: fixed;
+      bottom: 16px;
+      right: 24px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      z-index: 100;
+    }
+
+    #nav-hint {
+      position: fixed;
+      bottom: 16px;
+      left: 24px;
+      font-size: 0.72rem;
+      color: rgba(139, 148, 158, 0.5);
+      z-index: 100;
+    }
+
+    em {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="presentation">
+
+    <!-- 1. Title -->
+    <section class="slide slide--title active">
+      <div class="badge">PyData · PDFTA</div>
+      <h1>Building valuable Deterministic products<br>in a Probabilistic world</h1>
+      <p class="subtitle">A product oriented guide to LLMs using Pydantic</p>
+      <p style="margin-top:52px;color:var(--text-muted);font-size:0.88rem;letter-spacing:0.04em;">John Carney · 2025</p>
+    </section>
+
+    <!-- 2. About Me -->
+    <section class="slide">
+      <h2>👋 I'm John Carney</h2>
+      <ul class="bullets" style="margin-top:32px;">
+        <li>PhD in Molecular Genetics of Wheat</li>
+        <li>Co-Founder PyDataMCR</li>
+        <li>PyData London Conference Chair</li>
+        <li>PyData Strategic Committee Chair</li>
+        <li>Founder — Field of Play</li>
+        <li>PDFTA — helping organisations build data &amp; AI products &amp; capability</li>
+      </ul>
+    </section>
+
+    <!-- 3. Experience -->
+    <section class="slide">
+      <h2>My experience</h2>
+      <p style="color:var(--text-muted);margin-top:8px;">Some projects I've worked on:</p>
+      <ul class="bullets">
+        <li>Search ranking for eCommerce</li>
+        <li>Recommendations models</li>
+        <li>eCommerce ML Platforms</li>
+        <li>Insurance pricing systems</li>
+        <li>Classifying ~5 billion data points per day</li>
+      </ul>
+    </section>
+
+    <!-- 4. Core Message -->
+    <section class="slide">
+      <div class="eyebrow">Core Message</div>
+      <h2>What we're here to learn</h2>
+      <div class="core-messages">
+        <div class="core-msg"><span class="core-msg__icon">🎯</span><span class="core-msg__text">To deliver a valuable
+            product, use as little AI as necessary — and no less</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🔬</span><span class="core-msg__text">Falsifiability is your
+            friend</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🛠️</span><span class="core-msg__text">Follow software
+            engineering best practices</span></div>
+        <div class="core-msg"><span class="core-msg__icon">💡</span><span class="core-msg__text">Solve a problem!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Section — Probabilistic Systems -->
+    <section class="slide slide--section">
+      <div class="section-num">01</div>
+      <h2>Probabilistic Systems</h2>
+    </section>
+
+    <!-- 6. Using probabilistic systems -->
+    <section class="slide">
+      <h2>Using probabilistic systems</h2>
+      <ul class="bullets">
+        <li>LLMs are probabilistic in nature</li>
+        <li>For the first time in computing history we're building large-scale systems that are probabilistic in nature
+        </li>
+        <li>We're still figuring out best practices</li>
+      </ul>
+    </section>
+
+    <!-- 7. What is a probabilistic system? -->
+    <section class="slide">
+      <h2>What is a probabilistic system?</h2>
+      <div class="callout">
+        A system whose output is not fully determined by its input — the same input can produce different outputs on
+        different runs, governed by a probability distribution.
+      </div>
+      <ul class="bullets">
+        <li><em>Deterministic:</em> same input → always the same output</li>
+        <li><em>Probabilistic:</em> same input → output drawn from a distribution</li>
+      </ul>
+    </section>
+
+    <!-- 8. How do LLMs generate a response? -->
+    <section class="slide">
+      <h2>How do LLMs generate a response?</h2>
+      <div class="formula">P(next token | context) → sample → repeat until stop</div>
+      <ul class="bullets">
+        <li>LLMs are Bayesian, <em>In Expectation</em> — not in Realization</li>
+        <li>P(θ) represents a prior over tasks induced by pretraining data</li>
+        <li>Each token is sampled from a probability distribution over the vocabulary</li>
+      </ul>
+    </section>
+
+    <!-- 9. Curse of Dimensionality -->
+    <section class="slide">
+      <h2>Curse of Dimensionality</h2>
+      <ul class="bullets">
+        <li>Measuring distance from a point gets increasingly difficult as dimensions increase</li>
+        <li>LLMs operate in extremely high-dimensional space</li>
+        <li>This makes evaluating "how close" an output is to the ideal extremely hard</li>
+      </ul>
+    </section>
+
+    <!-- 10. Markov Decision Processes -->
+    <section class="slide">
+      <h2>Markov Decision Processes</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:4px;">My mental model for LLMs</p>
+      <ul class="bullets">
+        <li><em>States (S):</em> A set of possible states the environment can be in</li>
+        <li><em>Actions (A):</em> A set of actions the agent can take</li>
+        <li><em>Transition Probability (P):</em> The probability that action <code>a</code> in state <code>s</code> will
+          lead to state <code>s'</code></li>
+        <li><em>Reward (R):</em> The immediate reward after transitioning from <code>s</code> to <code>s'</code> due to
+          action <code>a</code></li>
+      </ul>
+      <div class="callout">A mathematical framework for modeling sequential decision-making where outcomes are partly
+        random and partly under the control of a decision maker.</div>
+    </section>
+
+    <!-- 11. What this means for us -->
+    <section class="slide">
+      <h2>What this means for us</h2>
+      <ul class="bullets">
+        <li>In an LLM there's a probability that any token can be predicted next</li>
+        <li>That's a huge distribution to evaluate — we care about the <em>sum</em> of all next tokens until the stop
+          point</li>
+        <li>It's a much higher distribution problem: <code>P(Xn)</code></li>
+      </ul>
+      <div class="formula">How do we validate P(y'<sub>n+1</sub>)?</div>
+    </section>
+
+    <!-- 12. Section — Structured Outputs & AI -->
+    <section class="slide slide--section">
+      <div class="section-num">02</div>
+      <h2>Structured Outputs &amp; AI</h2>
+    </section>
+
+    <!-- 13. What is a structured output? -->
+    <section class="slide">
+      <h2>What is a structured output?</h2>
+      <ul class="bullets">
+        <li>A response to an LLM prompt that fits a given format</li>
+        <li>Usually a JSON schema</li>
+      </ul>
+      <pre><code>{
+  <span class="str">"Name"</span>: <span class="str">"tiddles"</span>,
+  <span class="str">"Species"</span>: <span class="str">"cat"</span>
+}</code></pre>
+    </section>
+
+    <!-- 14. What is Pydantic? -->
+    <section class="slide slide--code">
+      <h2>What is Pydantic?</h2>
+      <p style="color:var(--text-muted);margin-top:6px;">Most popular data validation library in Python</p>
+      <pre><code><span class="kw">class</span> <span class="cls">Fruit</span>(BaseModel):
+    name: <span class="kw">str</span>
+    color: Literal[<span class="str">'red'</span>, <span class="str">'green'</span>, <span class="str">'yellow'</span>]
+    weight: Annotated[<span class="kw">float</span>, Gt(<span class="num">0</span>)]
+    bazam: <span class="kw">dict</span>[<span class="kw">str</span>, <span class="kw">list</span>[<span class="kw">tuple</span>[<span class="kw">int</span>, <span class="kw">bool</span>, <span class="kw">float</span>]]]</code></pre>
+    </section>
+
+    <!-- 15. Custom Validators -->
+    <section class="slide slide--code">
+      <h2>Custom Validators</h2>
+      <pre><code><span class="kw">def</span> <span class="fn">is_even</span>(value: <span class="kw">int</span>) -> <span class="kw">int</span>:
+    <span class="kw">if</span> value % <span class="num">2</span> == <span class="num">1</span>:
+        <span class="kw">raise</span> ValueError(<span class="str">f'{value} is not an even number'</span>)
+    <span class="kw">return</span> value
+
+
+<span class="kw">class</span> <span class="cls">Model</span>(BaseModel):
+    number: Annotated[<span class="kw">int</span>, AfterValidator(is_even)]</code></pre>
+    </section>
+
+    <!-- 16. PydanticAI -->
+    <section class="slide slide--code">
+      <h2>PydanticAI</h2>
+      <p style="color:var(--text-muted);margin-top:6px;">Other OSS frameworks are available</p>
+      <pre><code>fruit_agent = <span class="fn">Agent</span>(
+    model=<span class="str">"openai:gpt-4o"</span>,
+    output_type=<span class="cls">Fruit</span>,
+    usage_limits=<span class="fn">UsageLimits</span>(response_tokens_limit=<span class="num">10</span>),
+    retries=<span class="num">5</span>,
+    system_prompt=<span class="str">"""
+        What fruit am I?
+    """</span>,
+)</code></pre>
+    </section>
+
+    <!-- 17. Section — Back to Core Concepts -->
+    <section class="slide slide--section">
+      <div class="section-num">03</div>
+      <h2>Back to Core Concepts</h2>
+    </section>
+
+    <!-- 18. Core Message (reprise) -->
+    <section class="slide">
+      <div class="eyebrow">Core Message — Revisited</div>
+      <h2>Grounding ourselves</h2>
+      <div class="core-messages">
+        <div class="core-msg"><span class="core-msg__icon">🎯</span><span class="core-msg__text">To deliver a valuable
+            product, use as little AI as necessary — and no less</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🔬</span><span class="core-msg__text">Falsifiability is your
+            friend</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🛠️</span><span class="core-msg__text">Follow software
+            engineering best practices</span></div>
+        <div class="core-msg"><span class="core-msg__icon">💡</span><span class="core-msg__text">Solve a problem!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 19. Validation Problem -->
+    <section class="slide">
+      <h2>How do we validate P(y'<sub>n+1</sub>)?</h2>
+      <div class="formula">P(y'<sub>n+1</sub> | x, θ)</div>
+      <ul class="bullets">
+        <li>We can't validate every possible output — the space is too large</li>
+        <li>We need to constrain the output space first</li>
+        <li>Structured outputs are how we get a handle on this</li>
+      </ul>
+    </section>
+
+    <!-- 20. Unit of work -->
+    <section class="slide">
+      <h2>What is the unit of work?</h2>
+      <ul class="bullets">
+        <li>We don't care about each individual token</li>
+        <li>We care about our <em>structured output</em> as a whole</li>
+        <li>This shifts our evaluation unit: tokens → structured objects</li>
+      </ul>
+    </section>
+
+    <!-- 21. Putting the science in data science -->
+    <section class="slide">
+      <h2>Putting the "science" in data science</h2>
+      <div class="callout" style="font-style:normal;font-size:1.05rem;">
+        <strong style="color:var(--text);">Karl Popper — Falsificationism:</strong> A hypothesis is scientific only if
+        it can, in principle, be proven false. If you can't define what failure looks like, you can't evaluate success.
+      </div>
+      <ul class="bullets">
+        <li>Define what a <em>bad</em> output looks like before you build</li>
+        <li>Write evaluations as falsifiable criteria</li>
+        <li>Iterate based on evidence, not intuition</li>
+      </ul>
+    </section>
+
+    <!-- 22. Section — Example 1 -->
+    <section class="slide slide--section">
+      <div class="section-num">04</div>
+      <h2>Example 1</h2>
+      <p class="subtitle" style="color:rgba(255,255,255,0.35);margin-top:12px;">Health Startup</p>
+    </section>
+
+    <!-- 23. Health Startup context -->
+    <section class="slide">
+      <h2>Health Startup</h2>
+      <ul class="bullets">
+        <li>Working with founders — completely greenfield</li>
+        <li>MVP for the core product of the business</li>
+        <li>AI understands information the user inputs through a form, analyses it, applies a little RAG, and makes
+          results accessible to the main API</li>
+        <li>⚠️ Does not perform diagnosis or provide medical advice</li>
+      </ul>
+    </section>
+
+    <!-- 24. Pydantic Models — AboutYou -->
+    <section class="slide slide--code">
+      <h2>Pydantic Models</h2>
+      <pre><code><span class="kw">class</span> <span class="cls">AboutYou</span>(BaseModel):
+    what_activities_hobbies_or_routines: <span class="kw">str</span> = Field(
+        ..., description=<span class="str">"What activities, hobbies, or routines do you enjoy—or miss doing?"</span>)
+    who_do_you_live_with: <span class="kw">str</span> = Field(
+        ..., description=<span class="str">"Who do you live with, and what support do you have at home?"</span>)
+    what_upcoming_events_or_milestones_matter_to_you: <span class="kw">str</span> = Field(
+        ..., description=<span class="str">"What upcoming events or milestones matter to you?"</span>)
+    what_is_your_biggest_worry: <span class="kw">str</span> = Field(
+        ..., description=<span class="str">"What is your biggest worry about your health or treatment journey?"</span>)</code></pre>
+    </section>
+
+    <!-- 25. Pydantic Models — Patient -->
+    <section class="slide slide--code">
+      <h2>Pydantic Models</h2>
+      <pre><code><span class="kw">class</span> <span class="cls">Patient</span>(BaseModel):
+    name: <span class="kw">str</span>
+    about_you: <span class="cls">AboutYou</span>
+    age: <span class="kw">int</span>
+    condition_id: <span class="kw">str</span></code></pre>
+    </section>
+
+    <!-- 26. Outcomes — Example 1 -->
+    <section class="slide">
+      <div class="eyebrow">Example 1 — Outcomes</div>
+      <h2>What did we get?</h2>
+      <ul class="bullets">
+        <li>MVP ready for users</li>
+        <li>Composable components — easy to tweak based on feedback</li>
+        <li>Short time to value</li>
+      </ul>
+    </section>
+
+    <!-- 27. Section — Example 2 -->
+    <section class="slide slide--section">
+      <div class="section-num">05</div>
+      <h2>Example 2</h2>
+      <p class="subtitle" style="color:rgba(255,255,255,0.35);margin-top:12px;">Large Corporation</p>
+    </section>
+
+    <!-- 28. Large Corporation context -->
+    <section class="slide">
+      <h2>Large Corporation</h2>
+      <ul class="bullets">
+        <li>Tool for translating DML into ANSI SQL</li>
+        <li>Migrating an ETL tool that powers 10,000s of tables</li>
+        <li>Working as part of a small team, in a minor department</li>
+        <li>Auxiliary tool to a back-office process</li>
+      </ul>
+    </section>
+
+    <!-- 29. Evaluation Criteria -->
+    <section class="slide">
+      <h2>Evaluation Criteria</h2>
+      <ul class="bullets">
+        <li><em>Validator</em> — automated structural checks</li>
+        <li><em>Deterministic Criteria</em> — rule-based pass / fail</li>
+        <li><em>Expert Review</em> — human-in-the-loop validation</li>
+        <li><em>Inference time checks</em> — latency &amp; cost bounds</li>
+        <li><em>Error Analysis</em> — understanding failure modes</li>
+      </ul>
+    </section>
+
+    <!-- 30. Criteria -->
+    <section class="slide">
+      <h2>Criteria</h2>
+      <p style="color:var(--text-muted);margin-top:8px;">What does a good SQL translation look like?</p>
+      <ul class="bullets">
+        <li>Is it a valid SQL query?</li>
+        <li>Does it contain a CREATE statement?</li>
+        <li>Does it compile in dbt?</li>
+      </ul>
+    </section>
+
+    <!-- 31. Data! -->
+    <section class="slide">
+      <h2>Data!</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Run ID</th>
+            <th>Criteria 1</th>
+            <th>Criteria 2</th>
+            <th>Criteria n</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5cbddf9c-cf64-44a5-a56b</td>
+            <td class="t">True</td>
+            <td class="f">False</td>
+            <td class="f">False</td>
+          </tr>
+          <tr>
+            <td>7139c6bf-88a9-4ff4-a2bb</td>
+            <td class="t">True</td>
+            <td class="t">True</td>
+            <td class="f">False</td>
+          </tr>
+          <tr>
+            <td>56a1cf71-401d-4fab-8961</td>
+            <td class="f">False</td>
+            <td class="f">False</td>
+            <td class="f">False</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 32. Outcomes — Example 2 -->
+    <section class="slide">
+      <div class="eyebrow">Example 2 — Outcomes</div>
+      <h2>What did we get?</h2>
+      <ul class="bullets">
+        <li>Incorporates expert knowledge in a systematic way</li>
+        <li>Automation of translation at scale</li>
+        <li>Prevents large classes of errors</li>
+        <li>Created a framework for iteration and improvement</li>
+      </ul>
+    </section>
+
+    <!-- 33. Section — Conclusions -->
+    <section class="slide slide--section">
+      <div class="section-num">06</div>
+      <h2>Conclusions</h2>
+    </section>
+
+    <!-- 34. Core Message Final -->
+    <section class="slide">
+      <div class="eyebrow">Take this with you</div>
+      <h2>Core Message</h2>
+      <div class="core-messages">
+        <div class="core-msg"><span class="core-msg__icon">🎯</span><span class="core-msg__text">To deliver a valuable
+            product, use as little AI as necessary — and no less</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🔬</span><span class="core-msg__text">Falsifiability is your
+            friend</span></div>
+        <div class="core-msg"><span class="core-msg__icon">🛠️</span><span class="core-msg__text">Follow software
+            engineering best practices</span></div>
+        <div class="core-msg"><span class="core-msg__icon">💡</span><span class="core-msg__text">Solve a problem!</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="progress">
+    <div id="progress-fill"></div>
+  </div>
+  <div id="counter"></div>
+  <div id="nav-hint">← → navigate · F fullscreen · Home / End</div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    let cur = 0;
+
+    function go(n) {
+      slides[cur].classList.remove('active');
+      cur = ((n % total) + total) % total;
+      slides[cur].classList.add('active');
+      document.getElementById('counter').textContent = `${cur + 1} / ${total}`;
+      document.getElementById('progress-fill').style.width = `${((cur + 1) / total) * 100}%`;
+    }
+
+    document.addEventListener('keydown', e => {
+      if (['ArrowRight', 'ArrowDown', ' '].includes(e.key)) { e.preventDefault(); go(cur + 1); }
+      if (['ArrowLeft', 'ArrowUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
+      if (e.key === 'Home') go(0);
+      if (e.key === 'End') go(total - 1);
+      if ((e.key === 'f' || e.key === 'F') && !e.ctrlKey && !e.metaKey)
+        document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    });
+
+    document.getElementById('presentation').addEventListener('click', e => {
+      go(e.clientX > window.innerWidth / 2 ? cur + 1 : cur - 1);
+    });
+
+    go(0);
+  </script>
+</body>
+
+</html>
