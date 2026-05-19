@@ -414,10 +414,11 @@
     <!-- ─── PRE-SECTION: Title ─────────────────────────────────────── -->
 
     <section class="slide slide--title active">
-      <div class="badge">PyData · PDFTA</div>
+      <div class="badge">PDFTA</div>
       <h1>Building valuable Deterministic products<br>in a Probabilistic world</h1>
       <p class="subtitle">The role of Data Science in Product Development</p>
-      <p style="margin-top:52px;color:var(--text-muted);font-size:0.88rem;letter-spacing:0.04em;">Dr John Carney · 2026</p>
+      <p style="margin-top:52px;color:var(--text-muted);font-size:0.88rem;letter-spacing:0.04em;">Dr John Carney · 2026
+      </p>
     </section>
 
     <!-- ─── SECTION 1: Introduction ───────────────────────────────── -->
@@ -435,8 +436,8 @@
           <li>PhD in Molecular Genetics of Wheat</li>
           <li>Co-Founder PyDataMCR</li>
           <li>PyData London Conference Chair &amp; Strategic Committee Chair</li>
-          <li>Founder — Field of Play</li>
-          <li>Consultant — PDFTA</li>
+          <li>Founder - Field of Play</li>
+          <li>Consultant - PDFTA</li>
         </ul>
         <div>
           <p
@@ -462,11 +463,9 @@
       <h2>What we're here to learn</h2>
       <div class="core-messages">
         <div class="core-msg"><span class="core-msg__icon">🌊</span><span class="core-msg__text">The rise of LLMs is
-            giving rise to a new class of product — <em>probabilistic products</em> — beyond the deterministic products
-            and processes we're used to building</span></div>
+            giving rise to a new class of product - <em>probabilistic products</em></span></div>
         <div class="core-msg"><span class="core-msg__icon">⚠️</span><span class="core-msg__text">Building successful
-            probabilistic products is not the same as building deterministic ones — it demands different skills,
-            different processes, and a different mindset</span></div>
+            probabilistic products is not the same as building deterministic ones </span></div>
       </div>
     </section>
 
@@ -476,7 +475,7 @@
       <h2>The principles we'll explore</h2>
       <div class="core-messages">
         <div class="core-msg"><span class="core-msg__icon">🎯</span><span class="core-msg__text">To deliver a valuable
-            product, use as little AI as necessary — and no less</span></div>
+            product, use as little AI as necessary - and no less</span></div>
         <div class="core-msg"><span class="core-msg__icon">🔬</span><span class="core-msg__text">Falsifiability is your
             friend</span></div>
         <div class="core-msg"><span class="core-msg__icon">🛠️</span><span class="core-msg__text">Follow software
@@ -490,133 +489,165 @@
     <section class="slide">
       <h2>Deterministic vs Probabilistic Systems</h2>
       <ul class="bullets">
-        <li><em>Deterministic:</em> given the same inputs, you always get the same output — the system's behaviour is
-          fully determined by its inputs</li>
-        <li><em>Probabilistic:</em> given the same inputs, outputs can differ — but the variation isn't random noise; it
-          can be characterised by a probability distribution</li>
-        <li><em>Why this matters:</em> a system's behaviour is only fully understood when you know its output distribution — not just whether a single output was correct</li>
+        <li><em>Deterministic:</em> given the same inputs, you always get the same output</li>
+        <li><em>Probabilistic:</em> given the same inputs, outputs can differ</li>
+        <li><em>Why this matters:</em> a system's behaviour can only be approximated with its output distribution</li>
       </ul>
       <svg viewBox="0 0 960 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:28px;display:block;">
         <defs>
           <marker id="sv-arr" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#4080E6"/>
+            <path d="M0,0 L0,6 L8,3 z" fill="#4080E6" />
           </marker>
         </defs>
 
         <!-- ═══ LEFT: DETERMINISTIC ═══ -->
-        <text x="220" y="17" text-anchor="middle" font-family="'Josefin Sans',sans-serif"
-              font-size="11" fill="#4080E6" letter-spacing="0.1em">DETERMINISTIC</text>
+        <text x="220" y="17" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="11" fill="#4080E6"
+          letter-spacing="0.1em">DETERMINISTIC</text>
 
         <!-- run labels -->
-        <text x="24" y="69"  text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 1</text>
-        <text x="24" y="119" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 2</text>
-        <text x="24" y="169" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 3</text>
+        <text x="24" y="69" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 1</text>
+        <text x="24" y="119" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run
+          2</text>
+        <text x="24" y="169" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run
+          3</text>
 
         <!-- inputs -->
-        <rect x="28" y="55"  width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="68" y="73"  text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
-        <rect x="28" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="68" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
-        <rect x="28" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="68" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
+        <rect x="28" y="55" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="68" y="73" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
+        <rect x="28" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="68" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
+        <rect x="28" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="68" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
 
         <!-- arrows in (converging) -->
-        <line x1="108" y1="69"  x2="148" y2="91"  stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="108" y1="119" x2="148" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="108" y1="169" x2="148" y2="147" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
+        <line x1="108" y1="69" x2="148" y2="91" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="108" y1="119" x2="148" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="108" y1="169" x2="148" y2="147" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
 
         <!-- system box -->
-        <rect x="152" y="69" width="80" height="100" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1.5"/>
-        <text x="192" y="113" text-anchor="middle" font-family="'Josefin Sans',sans-serif"
-              font-size="13" font-weight="700" fill="#ffffff" letter-spacing="0.05em">SYSTEM</text>
-        <text x="192" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace"
-              font-size="9" fill="#4080E6" opacity="0.55">f(x)</text>
+        <rect x="152" y="69" width="80" height="100" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1.5" />
+        <text x="192" y="113" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13"
+          font-weight="700" fill="#ffffff" letter-spacing="0.05em">SYSTEM</text>
+        <text x="192" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4080E6"
+          opacity="0.55">f(x)</text>
 
         <!-- arrows out (diverging) -->
-        <line x1="232" y1="91"  x2="270" y2="69"  stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="232" y1="119" x2="270" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="232" y1="147" x2="270" y2="169" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
+        <line x1="232" y1="91" x2="270" y2="69" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="232" y1="119" x2="270" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="232" y1="147" x2="270" y2="169" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
 
         <!-- outputs — identical -->
-        <rect x="274" y="55"  width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="314" y="73"  text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output Y</text>
-        <rect x="274" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="314" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output Y</text>
-        <rect x="274" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="314" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output Y</text>
+        <rect x="274" y="55" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="314" y="73" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          Y</text>
+        <rect x="274" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="314" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          Y</text>
+        <rect x="274" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="314" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          Y</text>
 
         <!-- bracket spanning all outputs -->
-        <path d="M 358,55 L 365,55 L 365,183 L 358,183" fill="none" stroke="#2d5c3a" stroke-width="1.2"/>
+        <path d="M 358,55 L 365,55 L 365,183 L 358,183" fill="none" stroke="#2d5c3a" stroke-width="1.2" />
         <text x="370" y="114" font-family="'Karla',sans-serif" font-size="8.5" fill="#3a7a4a">always</text>
         <text x="370" y="126" font-family="'Karla',sans-serif" font-size="8.5" fill="#3a7a4a">equal</text>
 
         <!-- caption -->
-        <text x="220" y="202" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5" fill="#555555">same output, every run</text>
+        <text x="220" y="202" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5" fill="#555555">same
+          output, every run</text>
 
         <!-- ═══ DIVIDER ═══ -->
-        <line x1="450" y1="8" x2="450" y2="194" stroke="#1e1e1e" stroke-width="1"/>
+        <line x1="450" y1="8" x2="450" y2="194" stroke="#1e1e1e" stroke-width="1" />
 
         <!-- ═══ RIGHT: PROBABILISTIC ═══ -->
-        <text x="700" y="17" text-anchor="middle" font-family="'Josefin Sans',sans-serif"
-              font-size="11" fill="#4080E6" letter-spacing="0.1em">PROBABILISTIC</text>
+        <text x="700" y="17" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="11" fill="#4080E6"
+          letter-spacing="0.1em">PROBABILISTIC</text>
 
         <!-- run labels -->
-        <text x="478" y="69"  text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 1</text>
-        <text x="478" y="119" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 2</text>
-        <text x="478" y="169" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run 3</text>
+        <text x="478" y="69" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run
+          1</text>
+        <text x="478" y="119" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run
+          2</text>
+        <text x="478" y="169" text-anchor="end" font-family="'Karla',sans-serif" font-size="9" fill="#3a3a3a">run
+          3</text>
 
         <!-- inputs (identical) -->
-        <rect x="482" y="55"  width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="522" y="73"  text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
-        <rect x="482" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="522" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
-        <rect x="482" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="522" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input X</text>
+        <rect x="482" y="55" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="522" y="73" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
+        <rect x="482" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="522" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
+        <rect x="482" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="522" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Input
+          X</text>
 
         <!-- arrows in (converging) -->
-        <line x1="562" y1="69"  x2="602" y2="91"  stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="562" y1="119" x2="602" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="562" y1="169" x2="602" y2="147" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
+        <line x1="562" y1="69" x2="602" y2="91" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="562" y1="119" x2="602" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="562" y1="169" x2="602" y2="147" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
 
         <!-- system box (identical) -->
-        <rect x="606" y="69" width="80" height="100" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1.5"/>
-        <text x="646" y="113" text-anchor="middle" font-family="'Josefin Sans',sans-serif"
-              font-size="13" font-weight="700" fill="#ffffff" letter-spacing="0.05em">SYSTEM</text>
-        <text x="646" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace"
-              font-size="9" fill="#4080E6" opacity="0.55">f(x)</text>
+        <rect x="606" y="69" width="80" height="100" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1.5" />
+        <text x="646" y="113" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13"
+          font-weight="700" fill="#ffffff" letter-spacing="0.05em">SYSTEM</text>
+        <text x="646" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4080E6"
+          opacity="0.55">f(x)</text>
 
         <!-- arrows out (diverging) -->
-        <line x1="686" y1="91"  x2="724" y2="69"  stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="686" y1="119" x2="724" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
-        <line x1="686" y1="147" x2="724" y2="169" stroke="#4080E6" stroke-width="1.2" opacity="0.55" marker-end="url(#sv-arr)"/>
+        <line x1="686" y1="91" x2="724" y2="69" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="686" y1="119" x2="724" y2="119" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
+        <line x1="686" y1="147" x2="724" y2="169" stroke="#4080E6" stroke-width="1.2" opacity="0.55"
+          marker-end="url(#sv-arr)" />
 
         <!-- outputs — different each run -->
-        <rect x="728" y="55"  width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="768" y="73"  text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output A</text>
-        <rect x="728" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="768" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output B</text>
-        <rect x="728" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1"/>
-        <text x="768" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output C</text>
+        <rect x="728" y="55" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="768" y="73" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          A</text>
+        <rect x="728" y="105" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="768" y="123" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          B</text>
+        <rect x="728" y="155" width="80" height="28" rx="5" fill="#111111" stroke="#2e2e2e" stroke-width="1" />
+        <text x="768" y="173" text-anchor="middle" font-family="'Karla',sans-serif" font-size="11" fill="#e5e5e5">Output
+          C</text>
 
         <!-- bracket spanning all outputs -->
-        <path d="M 812,55 L 819,55 L 819,183 L 812,183" fill="none" stroke="#4080E6" stroke-width="1.2" opacity="0.45"/>
+        <path d="M 812,55 L 819,55 L 819,183 L 812,183" fill="none" stroke="#4080E6" stroke-width="1.2"
+          opacity="0.45" />
 
         <!-- output distribution histogram -->
-        <text x="871" y="43" text-anchor="middle" font-family="'Karla',sans-serif" font-size="8.5" fill="#a3aaae">output distribution</text>
+        <text x="871" y="43" text-anchor="middle" font-family="'Karla',sans-serif" font-size="8.5" fill="#a3aaae">output
+          distribution</text>
         <!-- bars (bell-shaped, x-axis at y=183) -->
-        <rect x="826" y="168" width="12" height="15"  rx="1" fill="#4080E6" opacity="0.20"/>
-        <rect x="839" y="143" width="12" height="40"  rx="1" fill="#4080E6" opacity="0.35"/>
-        <rect x="852" y="113" width="12" height="70"  rx="1" fill="#4080E6" opacity="0.55"/>
-        <rect x="865" y="78"  width="12" height="105" rx="1" fill="#4080E6" opacity="0.75"/>
-        <rect x="878" y="113" width="12" height="70"  rx="1" fill="#4080E6" opacity="0.55"/>
-        <rect x="891" y="143" width="12" height="40"  rx="1" fill="#4080E6" opacity="0.35"/>
-        <rect x="904" y="168" width="12" height="15"  rx="1" fill="#4080E6" opacity="0.20"/>
+        <rect x="826" y="168" width="12" height="15" rx="1" fill="#4080E6" opacity="0.20" />
+        <rect x="839" y="143" width="12" height="40" rx="1" fill="#4080E6" opacity="0.35" />
+        <rect x="852" y="113" width="12" height="70" rx="1" fill="#4080E6" opacity="0.55" />
+        <rect x="865" y="78" width="12" height="105" rx="1" fill="#4080E6" opacity="0.75" />
+        <rect x="878" y="113" width="12" height="70" rx="1" fill="#4080E6" opacity="0.55" />
+        <rect x="891" y="143" width="12" height="40" rx="1" fill="#4080E6" opacity="0.35" />
+        <rect x="904" y="168" width="12" height="15" rx="1" fill="#4080E6" opacity="0.20" />
         <!-- x-axis -->
-        <line x1="824" y1="183" x2="918" y2="183" stroke="#2e2e2e" stroke-width="0.8"/>
-        <text x="871" y="195" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5" fill="#555555">output value →</text>
+        <line x1="824" y1="183" x2="918" y2="183" stroke="#2e2e2e" stroke-width="0.8" />
+        <text x="871" y="195" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5"
+          fill="#555555">output value →</text>
 
         <!-- caption -->
-        <text x="700" y="202" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5" fill="#555555">output varies across runs</text>
+        <text x="700" y="202" text-anchor="middle" font-family="'Karla',sans-serif" font-size="9.5"
+          fill="#555555">output varies across runs</text>
       </svg>
     </section>
 
@@ -627,63 +658,65 @@
       <h2>Background</h2>
     </section>
 
-    <!-- 5. What do we mean by deterministic products? -->
+    <!-- 7. What do we mean by deterministic products? -->
     <section class="slide">
       <h2>What do we mean by deterministic products?</h2>
       <ul class="bullets">
-        <li><em>SQL databases</em> — the same query on the same data always returns the same rows</li>
-        <li><em>Login / auth flows</em> — given valid credentials, you always get a session token; invalid credentials always fail</li>
-        <li><em>Payment flows</em> — cart + payment method → the same order confirmation, every time</li>
+        <li><em>SQL databases</em> the same query on the same data always returns the same rows</li>
+        <li><em>Login / auth flows</em> given valid credentials, you always get a session token; invalid credentials
+          always fail</li>
+        <li><em>Payment flows</em> cart + payment method → the same order confirmation, every time</li>
       </ul>
     </section>
 
-    <!-- 6. How have we built deterministic products? -->
+    <!-- 8. How have we built deterministic products? -->
     <section class="slide">
       <h2>How have we built deterministic products?</h2>
       <p style="color:var(--text-muted);margin-top:6px;margin-bottom:4px;">Techniques and principles</p>
       <ul class="bullets">
-        <li><em>Unit &amp; integration testing</em> — verify specific input/output pairs exhaustively</li>
-        <li><em>CI/CD</em> — automated quality gates before every deployment</li>
-        <li><em>Versioning</em> — deterministic behaviour tied to a specific, reproducible release</li>
-        <li><em>Monitoring &amp; alerting</em> — detect when outputs deviate from expected ranges</li>
-        <li><em>Reproducibility</em> — any engineer can run the system and get the same result</li>
+        <li><em>Unit &amp; integration testing</em> verify specific input/output pairs exhaustively</li>
+        <li><em>CI/CD</em> automated quality gates before every deployment</li>
+        <li><em>Versioning</em> deterministic behaviour tied to a specific, reproducible code release</li>
+        <li><em>Reproducibility</em> any engineer can run the system and get the same result</li>
       </ul>
     </section>
 
-    <!-- 7. Where deterministic techniques fall short -->
+    <!-- 9. Where deterministic techniques fall short -->
     <section class="slide">
       <h2>Where deterministic techniques fall short</h2>
       <ul class="bullets">
-        <li>You can't enumerate all possible outputs — the <em>test oracle problem</em></li>
+        <li>You can't know the correct answer in advance <em>"Test oracle problem"</em></li>
         <li>Unit test passes are a single sample from a distribution</li>
-        <li>A single failing test tells you <em>an</em> output was wrong — not <em>why</em> or <em>how often</em></li>
-        <li>"Works on my machine" loses meaning when outputs are sampled from a distribution</li>
+        <li>A single failing test tells you <em>a</em> single sample of the output was wrong not <em>why</em> or <em>how
+            often</em></li>
       </ul>
     </section>
 
-    <!-- 8. Two categories of probabilistic products -->
+    <!-- 10. Two categories of probabilistic products -->
     <section class="slide">
       <h2>Two categories of probabilistic products</h2>
       <div class="core-messages" style="margin-top:32px;">
         <div class="core-msg"><span class="core-msg__icon">🔒</span><span class="core-msg__text"><em>Deterministic
-              interface:</em> uses a probabilistic component internally, but exposes a consistent, well-typed output to
-            callers — the probabilism is hidden behind a structured contract</span></div>
+              :</em> uses a probabilistic component internally, creates a complete, stand-alone artefact</span>
+        </div>
         <div class="core-msg"><span class="core-msg__icon">🎲</span><span class="core-msg__text"><em>Probabilistic
-              interface:</em> outputs are inherently variable and exposed as such — users receive different results on
-            different runs, and the product is designed around that variability</span></div>
+              :</em> outputs are inherently variable; users receive different results on different runs, and
+            the
+            benefit of the product is designed to make use of that variability</span></div>
       </div>
     </section>
 
-    <!-- 9. How an LLM generates a response -->
+    <!-- 11. How an LLM generates a response -->
     <section class="slide">
       <h2>How an LLM generates a response</h2>
       <div class="formula">P(next token | context) → sample → repeat until stop</div>
       <ul class="bullets">
         <li>Each token is sampled from a probability distribution over the vocabulary</li>
-        <li>LLMs are Bayesian <em>in expectation</em> — not in any single realisation</li>
+        <li>LLMs are Bayesian <em>in expectation</em> - not in any single realisation</li>
       </ul>
       <div class="math-display">
-        $$p(y_{n+1} \mid x_{n+1}, \mathcal{D}_n) = \int p(y_{n+1} \mid x_{n+1}, \theta)\, p(\theta \mid \mathcal{D}_n)\, d\theta$$
+        $$p(y_{n+1} \mid x_{n+1}, \mathcal{D}_n) = \int p(y_{n+1} \mid x_{n+1}, \theta)\, p(\theta \mid \mathcal{D}_n)\,
+        d\theta$$
       </div>
     </section>
 
@@ -694,55 +727,54 @@
       <h2>Principles</h2>
     </section>
 
-    <!-- 10. The curse of dimensionality -->
+    <!-- 14. The curse of dimensionality -->
     <section class="slide">
       <h2>The curse of dimensionality</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:16px;">
         <ul class="bullets" style="margin-top:0;">
           <li>Measuring distance from a point gets increasingly difficult as dimensions increase</li>
-          <li>LLMs operate in extremely high-dimensional space — making it very hard to evaluate how close any output is to the ideal</li>
-          <li>We can't validate every possible output — the space is effectively infinite</li>
-          <li>Every constraint is a <em>dimensionality reduction</em> — structured outputs, typed fields, and domain validators shrink the space to something observable and testable</li>
+          <li>LLMs operate in extremely high-dimensional space</li>
+          <li>We can't validate every possible output</li>
+          <li>Every constraint acts to <em>reduce dimensionality</em> </li>
+          <li>Structured outputs, typed fields, and domain validators shrink the space to something observable and
+            testable</li>
         </ul>
-        <img src="curse-of-dimensionality.png" alt="Ball-in-cube volume ratio decreasing as dimensions increase" style="width:70%;display:block;filter:invert(1);clip-path:inset(48px 20px 16px 20px round 8px);">
+        <img src="curse-of-dimensionality.png" alt="Ball-in-cube volume ratio decreasing as dimensions increase"
+          style="width:70%;display:block;filter:invert(1);clip-path:inset(48px 20px 16px 20px round 8px);">
       </div>
     </section>
 
-    <!-- 11. Always check the observed output distribution -->
+    <!-- 15. Always check the observed output distribution -->
     <section class="slide">
       <h2>Always check the observed output distribution</h2>
       <ul class="bullets">
         <li>Without constraints on outputs, we have no visibility into what the output distribution looks like</li>
-        <li>Unlike software code, data distributions can change faster than code — a model update, an input shift, or a
-          change in user behaviour can alter outputs without a single line of code changing</li>
-        <li><em>Schema drift</em> — the structure of the data changes: new fields, missing fields, type changes</li>
-        <li><em>Distribution drift</em> — statistical properties shift: min, max, shape (normal vs power law), mean,
-          standard deviation, tail behaviour</li>
+        <li>Data distributions changes faster than code</li>
+        <li><em>Schema drift</em> - the structure or shape of the data changes</li>
+        <li><em>Distribution drift</em> - statistical properties shift</li>
       </ul>
     </section>
 
-    <!-- 12. Validate as quickly as possible -->
+    <!-- 16. Validate as quickly as possible -->
     <section class="slide">
       <h2>Validate as quickly as possible</h2>
-      <p style="color:var(--text-muted);margin-top:6px;">Short feedback loops</p>
       <ul class="bullets" style="margin-top:28px;">
-        <li>Validating early is a core software engineering principle — catch failures fast, fix them cheaply</li>
-        <li>Applied to probabilistic outputs: validate the result <em>before</em> it reaches downstream systems or users
-        </li>
+        <li>Validating early is a core software engineering principle</li>
+        <li>Validate the result <em>before</em> it reaches downstream systems or users</li>
         <li>The longer a bad output travels through a system undetected, the more expensive the failure</li>
-        <li>Constrain the output at the point of generation — don't defer validation to the consumer</li>
+        <li>Constrain the output at the point of generation rather than at the consumer</li>
       </ul>
     </section>
 
-    <!-- 13. Systematic evaluation -->
+    <!-- 17. Systematic evaluation -->
     <section class="slide">
       <h2>Systematic evaluation</h2>
       <ul class="bullets" style="margin-top:28px;">
-        <li>Ad-hoc checks are not enough — probabilistic systems require systematic, automated evaluation</li>
-        <li>Evaluation criteria should be derived from observed failure modes, not invented upfront</li>
-        <li>Test against both observed data (real production inputs) and artificial data (generated to cover known edge
-          cases)</li>
-        <li>Criteria must be actively maintained — as new failure modes emerge, the evaluation set must grow to reflect
+        <li>Ad-hoc checks are not enough - probabilistic systems require systematic, automated evaluation</li>
+        <li>Evaluation criteria should be derived from observed failure modes</li>
+        <li>Test against both observed data (real production inputs) and test sets (generated to cover known edge cases)
+        </li>
+        <li>Criteria must be actively maintained - as new failure modes emerge, the evaluation set must grow to reflect
           them</li>
       </ul>
     </section>
@@ -754,33 +786,35 @@
       <h2>Techniques</h2>
     </section>
 
-    <!-- 14. Structured outputs -->
+    <!-- 19. Structured outputs -->
     <section class="slide slide--code">
       <h2>Structured outputs</h2>
       <ul class="bullets" style="margin-top:16px;">
-        <li>A response that conforms to a defined schema — constrains the output space</li>
-        <li>Makes the output distribution observable and evaluable</li>
-        <li>In Python: define the schema with <em>Pydantic</em>, wire into agents with <em>PydanticAI</em></li>
+        <li>A response to an LLM prompt that conforms to a defined schema</li>
+        <li>Constrains the output space &amp; makes the distribution observable and evaluable</li>
+        <li>Usually a JSON schema; in Python, defined with <em>Pydantic</em></li>
       </ul>
       <pre><code><span class="kw">class</span> <span class="cls">Fruit</span>(BaseModel):
     name: <span class="kw">str</span>
     color: Literal[<span class="str">'red'</span>, <span class="str">'green'</span>, <span class="str">'yellow'</span>]
     weight: Annotated[<span class="kw">float</span>, Gt(<span class="num">0</span>)]
 
-fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-4o"</span>, output_type=<span class="cls">Fruit</span>, retries=<span class="num">5</span>)</code></pre>
+fruit_agent = <span class="fn">Agent</span>(
+    model=<span class="str">"openai:gpt-4o"</span>,
+    output_type=<span class="cls">Fruit</span>,
+    retries=<span class="num">5</span>,
+)</code></pre>
     </section>
 
-    <!-- 15. Validation on write -->
+    <!-- 20. Validation on write -->
     <section class="slide slide--code">
       <h2>Validation on write</h2>
       <ul class="bullets" style="margin-top:20px;">
-        <li>Write time is the earliest possible moment to intercept a bad output — the tighter the feedback loop, the
-          cheaper the failure</li>
+        <li>Validation on write means checking outputs at the point of generation</li>
         <li>Two layers: <em>schema validation</em> (correct fields, correct types) and <em>constraint validation</em>
           (domain rules per field)</li>
-        <li>e.g. <code>products_purchased</code> — validate it is an integer, that it is ≥ 0, and (in an ecommerce
-          context) that it is &lt; 100</li>
-        <li>Pydantic enforces both layers at instantiation — the object either conforms or raises immediately</li>
+        <li>e.g. <code>products_purchased</code> - validate it is an integer, that it is ≥ 0, that it is &lt; 100</li>
+        <li>Pydantic enforces both layers at instantiation - the object either conforms or raises immediately</li>
       </ul>
       <pre><code><span class="kw">from</span> pydantic <span class="kw">import</span> <span class="cls">BaseModel</span>
 <span class="kw">from</span> typing <span class="kw">import</span> Annotated
@@ -790,47 +824,61 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
     products_purchased: Annotated[<span class="kw">int</span>, <span class="cls">Ge</span>(<span class="num">0</span>), <span class="cls">Lt</span>(<span class="num">100</span>)]</code></pre>
     </section>
 
-    <!-- 16. Automated evaluation infrastructure -->
+    <!-- 21. Automated evaluation infrastructure -->
     <section class="slide">
       <h2>Automated evaluation infrastructure</h2>
       <ul class="bullets" style="margin-top:20px;">
-        <li>Fully automated evaluation is not trivial — it requires purpose-built infrastructure</li>
-        <li>Capture observed outputs and the inputs that generated them at the point of generation (streamed capture)</li>
-        <li>Store evaluation criteria in a database — queryable, versioned, and maintainable as new failure modes are identified</li>
-        <li>Run deterministic classifiers against each output–criteria pair to produce a pass/fail decision</li>
+        <li>Fully automated evaluation is not trivial - it requires purpose-built infrastructure</li>
+        <li>Capture observed outputs and the inputs that generated them at the point of generation (streamed capture)
+        </li>
+        <li>Store evaluation criteria in a database - queryable, versioned, and maintainable as new failure modes are
+          identified</li>
+        <li>Run classifiers against each output–criteria pair to produce a pass/fail decision</li>
       </ul>
       <svg viewBox="0 0 840 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:32px;">
         <defs>
           <marker id="arr" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#4080E6"/>
+            <path d="M0,0 L0,6 L8,3 z" fill="#4080E6" />
           </marker>
         </defs>
         <!-- Box 1: Capture -->
-        <rect x="10" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1"/>
-        <text x="95" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae" letter-spacing="2">STEP 1</text>
-        <text x="95" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700" fill="white">Capture</text>
-        <text x="95" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">stream outputs + inputs</text>
+        <rect x="10" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1" />
+        <text x="95" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae"
+          letter-spacing="2">STEP 1</text>
+        <text x="95" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18"
+          font-weight="700" fill="white">Capture</text>
+        <text x="95" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">stream
+          outputs + inputs</text>
         <!-- Arrow 1 -->
-        <line x1="182" y1="55" x2="213" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="182" y1="55" x2="213" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)" />
         <!-- Box 2: Store -->
-        <rect x="215" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1"/>
-        <text x="300" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae" letter-spacing="2">STEP 2</text>
-        <text x="300" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700" fill="white">Store</text>
-        <text x="300" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">criteria DB + outputs</text>
+        <rect x="215" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1" />
+        <text x="300" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae"
+          letter-spacing="2">STEP 2</text>
+        <text x="300" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18"
+          font-weight="700" fill="white">Store</text>
+        <text x="300" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11"
+          fill="#a3aaae">criteria DB + outputs</text>
         <!-- Arrow 2 -->
-        <line x1="387" y1="55" x2="418" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="387" y1="55" x2="418" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)" />
         <!-- Box 3: Classify -->
-        <rect x="420" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1"/>
-        <text x="505" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae" letter-spacing="2">STEP 3</text>
-        <text x="505" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700" fill="white">Classify</text>
-        <text x="505" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">deterministic pass / fail</text>
+        <rect x="420" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1" />
+        <text x="505" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae"
+          letter-spacing="2">STEP 3</text>
+        <text x="505" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18"
+          font-weight="700" fill="white">Classify</text>
+        <text x="505" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">pass /
+          fail</text>
         <!-- Arrow 3 -->
-        <line x1="592" y1="55" x2="623" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="592" y1="55" x2="623" y2="55" stroke="#4080E6" stroke-width="1.5" marker-end="url(#arr)" />
         <!-- Box 4: Report -->
-        <rect x="625" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1"/>
-        <text x="710" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae" letter-spacing="2">STEP 4</text>
-        <text x="710" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700" fill="white">Report</text>
-        <text x="710" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11" fill="#a3aaae">surface failures + trends</text>
+        <rect x="625" y="10" width="170" height="90" rx="8" fill="#111111" stroke="#4080E6" stroke-width="1" />
+        <text x="710" y="38" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" fill="#a3aaae"
+          letter-spacing="2">STEP 4</text>
+        <text x="710" y="62" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="18"
+          font-weight="700" fill="white">Report</text>
+        <text x="710" y="82" text-anchor="middle" font-family="'Karla', sans-serif" font-size="11"
+          fill="#a3aaae">surface failures + trends</text>
       </svg>
     </section>
 
@@ -841,15 +889,17 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
       <h2>Examples</h2>
     </section>
 
-    <!-- 17. Example 1 — Healthcare Startup -->
+    <!-- 24. Example 1 — Healthcare Startup -->
     <section class="slide slide--code">
-      <div class="eyebrow">Example 1 — Healthcare Startup</div>
+      <div class="eyebrow">Example 1 - Healthcare Startup</div>
       <h2>Deterministic outputs from a probabilistic system</h2>
       <ul class="bullets" style="margin-top:16px;">
-        <li>Greenfield MVP — AI analyses patient form data, applies RAG, exposes results to the main API</li>
-        <li>The LLM is probabilistic internally; the product surface is <em>deterministic</em> — callers always receive
-          a well-typed, validated object</li>
+        <li>Working with founders - completely greenfield MVP</li>
+        <li>AI analyses patient-input form data, applies RAG, and exposes structured results to the main API</li>
         <li>⚠️ Does not perform diagnosis or provide medical advice</li>
+        <li>The LLM is probabilistic internally, but the product surface is <em>deterministic</em> - callers always
+          receive a well-typed, validated object</li>
+        <li>Pydantic models define exactly what the output must look like</li>
       </ul>
       <pre><code><span class="kw">class</span> <span class="cls">Patient</span>(BaseModel):
     name: <span class="kw">str</span>
@@ -858,13 +908,15 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
     condition_id: <span class="kw">str</span></code></pre>
     </section>
 
-    <!-- 18. Example 2 — Validation on write in practice -->
+    <!-- 25. Example 2 — ClimateTech -->
     <section class="slide slide--code">
-      <div class="eyebrow">Example 2 — Validation on write</div>
+      <div class="eyebrow">Example 2 - ClimateTech</div>
       <h2>Short feedback loops in practice</h2>
       <ul class="bullets" style="margin-top:16px;">
-        <li>A real model combines both layers across every field — type constraints for structure, custom validators for domain logic</li>
-        <li>If an LLM generates an <code>OrderItem</code> that fails any check, Pydantic raises immediately — before the data can propagate</li>
+        <li>A real model combines both layers across every field - type constraints for structure, custom validators for
+          domain logic</li>
+        <li>If an LLM generates an <code>OrderItem</code> that fails any check, Pydantic raises immediately - before the
+          data can propagate</li>
       </ul>
       <pre><code><span class="cls">VALID_CATEGORIES</span> = {<span class="str">"electronics"</span>, <span class="str">"clothing"</span>, <span class="str">"food"</span>}
 
@@ -879,25 +931,29 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
     category:   Annotated[<span class="kw">str</span>,   <span class="cls">AfterValidator</span>(valid_category)]</code></pre>
     </section>
 
-    <!-- 19. Example 3 — Large Corporate eCommerce -->
+    <!-- 26. Example 3 - Large Corporate eCommerce -->
     <section class="slide">
-      <div class="eyebrow">Example 3 — Large Corporate eCommerce</div>
+      <div class="eyebrow">Example 3 - Large Corporate eCommerce</div>
       <h2>Error analysis in practice</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:16px;">
         <div>
-          <p style="color:var(--text-muted);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:'Josefin Sans',sans-serif;">Context</p>
+          <p
+            style="color:var(--text-muted);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:'Josefin Sans',sans-serif;">
+            Context</p>
           <ul class="bullets" style="margin-top:0;">
-            <li>Translating DML into ANSI SQL — migrating an ETL pipeline powering 10,000s of tables</li>
+            <li>Translating DML into ANSI SQL - migrating an ETL pipeline powering 10,000s of tables</li>
             <li>Small team, high volume, low tolerance for silent failure</li>
           </ul>
         </div>
         <div>
-          <p style="color:var(--text-muted);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:'Josefin Sans',sans-serif;">Evaluation layers</p>
+          <p
+            style="color:var(--text-muted);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:'Josefin Sans',sans-serif;">
+            Evaluation layers</p>
           <ul class="bullets" style="margin-top:0;">
-            <li><em>Validator</em> — automated structural checks</li>
-            <li><em>Deterministic criteria</em> — valid SQL? contains CREATE? compiles in dbt?</li>
-            <li><em>Expert review</em> — human-in-the-loop for edge cases</li>
-            <li><em>Error analysis</em> — classifying failure modes to drive iteration</li>
+            <li><em>Validator</em> - automated structural checks</li>
+            <li><em>Binary criteria</em> - valid SQL? contains CREATE? compiles in dbt?</li>
+            <li><em>Expert review</em> - human-in-the-loop for edge cases</li>
+            <li><em>Error analysis</em> - classifying failure modes to drive iteration</li>
           </ul>
         </div>
       </div>
@@ -940,19 +996,19 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
       <h2>Conclusions</h2>
     </section>
 
-    <!-- 20. Core Message Final -->
+    <!-- 36. Core Message Final -->
     <section class="slide">
       <div class="eyebrow">Take this with you</div>
       <h2>Core Message</h2>
       <div class="core-messages" style="margin-top:24px;grid-template-columns:1fr 1fr;">
         <div class="core-msg"><span class="core-msg__icon">🌊</span><span class="core-msg__text">The rise of LLMs is
-            giving rise to a new class of product — <em>probabilistic products</em> — beyond the deterministic products
+            giving rise to a new class of product - <em>probabilistic products</em> - beyond the deterministic products
             and processes we're used to building</span></div>
         <div class="core-msg"><span class="core-msg__icon">⚠️</span><span class="core-msg__text">Building successful
-            probabilistic products is not the same as building deterministic ones — it demands different skills,
+            probabilistic products is not the same as building deterministic ones - it demands different skills,
             different processes, and a different mindset</span></div>
         <div class="core-msg"><span class="core-msg__icon">🎯</span><span class="core-msg__text">To deliver a valuable
-            product, use as little AI as necessary — and no less</span></div>
+            product, use as little AI as necessary - and no less</span></div>
         <div class="core-msg"><span class="core-msg__icon">🔬</span><span class="core-msg__text">Falsifiability is your
             friend</span></div>
         <div class="core-msg"><span class="core-msg__icon">🛠️</span><span class="core-msg__text">Follow software
@@ -962,21 +1018,26 @@ fruit_agent = <span class="fn">Agent</span>(model=<span class="str">"openai:gpt-
       </div>
     </section>
 
-    <!-- 21. Thank you / Q&A -->
+    <!-- 37. Thank you / Q&A -->
     <section class="slide slide--title">
       <div class="badge">PyData · PDFTA</div>
       <h1>Thank you</h1>
       <p class="subtitle">Questions?</p>
-      <p style="margin-top:52px;color:var(--text-muted);font-size:0.88rem;letter-spacing:0.04em;">Dr John Carney · john@pdfta.com</p>
+      <p style="margin-top:52px;color:var(--text-muted);font-size:0.88rem;letter-spacing:0.04em;">Dr John Carney ·
+        john@pdfta.com</p>
     </section>
 
-    <!-- 22. PyData London 2026 -->
+    <!-- 38. PyData London 2026 -->
     <section class="slide slide--title">
       <div class="badge">Coming up</div>
       <h1 style="font-size:clamp(2rem,5vw,3.6rem);">PyData London 2026</h1>
       <p class="subtitle">June 5–7, 2026 · Convene Sancroft, St. Paul's</p>
-      <p style="margin-top:40px;color:var(--text-body);font-size:1rem;max-width:560px;text-align:center;line-height:1.7;">Three days of talks, tutorials, and community for data scientists, engineers, and tool builders.</p>
-      <p style="margin-top:48px;color:var(--accent);font-size:1.1rem;letter-spacing:0.04em;font-family:'Josefin Sans',sans-serif;">pydata.org/london2026</p>
+      <p
+        style="margin-top:40px;color:var(--text-body);font-size:1rem;max-width:560px;text-align:center;line-height:1.7;">
+        Three days of talks, tutorials, and community for data scientists, engineers, and tool builders.</p>
+      <p
+        style="margin-top:48px;color:var(--accent);font-size:1.1rem;letter-spacing:0.04em;font-family:'Josefin Sans',sans-serif;">
+        pydata.org/london2026</p>
     </section>
 
   </div>
